@@ -38,3 +38,12 @@
   }
 }
 
+.dot {
+  user-select: none;
+  border-radius: 100%;
+  padding: .5rem;
+  background: red;
+}
+
+.dot:hover {
+}

@@ -7,18 +7,16 @@ const App = props => {
   const [dots, updateDots] = useState([])
 
   const handleClick = event => {
-    const x = event.screenX;
-    const y = event.screenY;
-    debugger;
-    const newDots = dots.concat[{x, y}]
+    const x = event.clientX;
+    const y = event.clientY;
+    const newDots = dots.concat([{x: x, y: y}])
+    updateDots(newDots);
   }
-
 
   return (
     <div className="App" onClick={handleClick}>
-        <h1>Click Anywhere</h1>
         {
-          dots.map(dot => <Dot x={dot.x} y={dot.y} />)
+          dots.map(dot => <Dot x={dot.x} y={dot.y} key={`${dot.x}${dot.y}`}/>)
         }
     </div>
   );

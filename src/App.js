@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Dot from './Dot';
 
-function App() {
+const App = props => {
+
+  const [dots, updateDots] = useState([])
+
+  const handleClick = event => {
+    const x = event.screenX;
+    const y = event.screenY;
+    debugger;
+    const newDots = dots.concat[{x, y}]
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" onClick={handleClick}>
+        <h1>Click Anywhere</h1>
+        {
+          dots.map(dot => <Dot x={dot.x} y={dot.y} />)
+        }
     </div>
   );
 }
